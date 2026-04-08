@@ -26,8 +26,7 @@ class App extends React.Component {
         <h2>Login</h2>
         <input id='input_email' name='email' type='text' onChange={(e) => {this.setEmail(e)}}></input>
         <input id='input_senha' name='senha' type='text' onChange={(e) => {this.setSenha(e)}}></input>
-        <h3>{this.state.email}</h3>
-        <h3>{this.state.senha}</h3>
+        <button>Acessar</button>
       </div>
     )
   }
