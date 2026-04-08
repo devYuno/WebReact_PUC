@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 
- const credenciais = {
+const credenciais = {
     emailReal: 'pucpr@gmail.com',
     senhaReal: '12345'
-  }
+}
 
 class App extends React.Component {
 
@@ -27,14 +27,23 @@ class App extends React.Component {
     this.setState({ senha: senha })
   }
 
+  acessar() {
+    if (this.state.email == credenciais.emailReal && this.state.senha == credenciais.senhaReal) {
+      this.setState({ message: "Acesso liberado" })
+    }
+    else {
+      this.setState({ message: "Acesso negado" })
+    }
+  }
+
   render() {
     return (
       <div className='page'>
         <h2>Login</h2>
         <input id='input_email' name='email' type='text' onChange={(e) => { this.setEmail(e) }}></input>
         <input id='input_senha' name='senha' type='text' onChange={(e) => { this.setSenha(e) }}></input>
-        <button>Acessar</button>
-        <span>Acesso liberado</span>
+        <button id='btn_acessar' onClick={(e) => { this.acessar(e) }}>Acessar</button>
+        <span>{this.state.message}</span>
       </div>
     )
   }
