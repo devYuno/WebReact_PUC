@@ -10,6 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
@@ -17,10 +21,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: ${{ matrix.node-version }}
 
       - name: Instalar dependências
         run: npm install
+        working-directory: ./web-app
 
       - name: Rodar build
         run: npm run build
+        working-directory: ./web-app
