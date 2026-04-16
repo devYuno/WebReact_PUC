@@ -29,10 +29,10 @@ class App extends React.Component {
 
   acessar() {
     if (this.state.email === credenciais.emailReal && this.state.senha === credenciais.senhaReal) {
-      this.setState({ message: "Acesso liberado" })
+      this.setState({ message: "Acesso liberado!" })
     }
     else {
-      this.setState({ message: "Acesso negado" })
+      this.setState({ message: "Acesso negado!" })
     }
   }
 
