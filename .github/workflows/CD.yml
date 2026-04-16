@@ -3,7 +3,7 @@ name: CD React (Deploy Pages)
 on:
   push:
     branches: ["main"]
-  pull request:
+  pull_request:
     branches: ["main"]
 
 permissions:
