@@ -1,20 +1,22 @@
-name: CD React (Deploy)
+name: CD React (Deploy Pages)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -26,12 +28,14 @@ jobs:
         run: npm install
         working-directory: ./web-app
 
-      - name: Build do projeto
+      - name: Build
         run: npm run build
         working-directory: ./web-app
 
-      - name: Deploy no GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./web-app/build
+          path: ./web-app/build
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
