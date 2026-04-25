@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import Login from '../pages/Login/login';
-import Register from '../pages/Register/register';
-import Home from '../pages/Home/home';
+import Login from '../pages/Login/login.js';
+import Register from '../pages/Register/register.js';
+import Home from '../pages/Home/home.js';
 
 class AppRoutes extends React.Component {
     render() {
