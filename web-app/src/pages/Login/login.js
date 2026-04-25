@@ -47,7 +47,6 @@ class Login extends React.Component {
   acessar() {
     if (this.state.email === user.email && this.state.senha === user.senha) {
       this.props.navigate("/home");
-      alert("Acesso liberado!")
     }
     else {
       this.setState({ message: "Acesso negado" })

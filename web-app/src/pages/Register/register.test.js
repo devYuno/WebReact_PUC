@@ -1,12 +1,17 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Register from './register.js';
 
+
+beforeEach(() => {
+  localStorage.clear();
+  jest.clearAllMocks();
+});
+
 const mockNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate,
 }));
-
 
 test('deve registrar usuário e salvar no localStorage', () => {
   render(<Register />);
