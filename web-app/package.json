@@ -13,7 +13,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://devYuno.github.io/",
+  "homepage": "https://devyuno.github.io/WebReact_PUC",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
