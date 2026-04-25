@@ -7,7 +7,7 @@ import Home from '../pages/Home/home';
 class AppRoutes extends React.Component {
     render() {
         return (
-            <HashRouter >
+            <HashRouter basename='/WebReact_PUC'>
                 <Routes>
                     <Route path="/" element={<Login/>}></Route>
                     <Route path="/register" element={<Register/>}></Route>
