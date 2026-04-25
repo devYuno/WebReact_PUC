@@ -61,6 +61,7 @@ class Login extends React.Component {
         <h2>Login</h2>
         <input id='input_email' name='email' placeholder='Email' type='text' onChange={(e) => { this.setEmail(e) }}></input>
         <input id='input_senha' name='senha' placeholder='Senha' type='text' onChange={(e) => { this.setSenha(e) }}></input>
+        <a href='/#/register'>Não tenho login</a>
         <button id='btn_acessar' onClick={(e) => { this.acessar(e) }}>Acessar</button>
         <span>{this.state.message}</span>       
       </div>
