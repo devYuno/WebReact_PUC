@@ -22,11 +22,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Instalar dependências
-        run: npm install
+        run: npm ci
         working-directory: ./web-app
 
       - name: Rodar testes
-        run: npm test -- --watchAll=false
+        run: npm test 
         working-directory: ./web-app
 
       - name: Rodar build
