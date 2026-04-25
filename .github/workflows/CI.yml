@@ -3,8 +3,6 @@ name: CI React
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
@@ -25,6 +23,10 @@ jobs:
 
       - name: Instalar dependências
         run: npm install
+        working-directory: ./web-app
+
+      - name: Rodar testes
+        run: npm test -- --watchAll=false
         working-directory: ./web-app
 
       - name: Rodar build
