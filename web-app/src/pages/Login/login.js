@@ -41,14 +41,13 @@ class Login extends React.Component {
     if (stored) {
       let userStored = JSON.parse(stored);
       user = userStored
-      console.log(user)
     }
   }
 
   acessar() {
     if (this.state.email === user.email && this.state.senha === user.senha) {
-      alert("Acesso liberado!")
       this.props.navigate("/home");
+      alert("Acesso liberado!")
     }
     else {
       this.setState({ message: "Acesso negado" })
