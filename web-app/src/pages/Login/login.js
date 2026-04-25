@@ -47,7 +47,7 @@ class Login extends React.Component {
 
   acessar() {
     if (this.state.email === user.email && this.state.senha === user.senha) {
-      this.setState({ message: "Acesso liberado" })
+      alert("Acesso liberado!")
       this.props.navigate("/home");
     }
     else {
@@ -62,7 +62,7 @@ class Login extends React.Component {
         <input id='input_email' name='email' placeholder='Email' type='text' onChange={(e) => { this.setEmail(e) }}></input>
         <input id='input_senha' name='senha' placeholder='Senha' type='text' onChange={(e) => { this.setSenha(e) }}></input>
         <button id='btn_acessar' onClick={(e) => { this.acessar(e) }}>Acessar</button>
-        <span>{this.state.message}</span>
+        <span>{this.state.message}</span>       
       </div>
     )
   }
