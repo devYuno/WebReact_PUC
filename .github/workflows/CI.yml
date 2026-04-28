@@ -38,61 +38,19 @@ jobs:
         uses: tsickert/discord-webhook@v7.0.0
         with:
           webhook-url: ${{ secrets.WEBHOOK_DISCORD }}
-          payload: |
-            {
-              "embeds": [
-                {
-                  "title": "🟢 Build Success",
-                  "description": "All tests passed and build completed",
-                  "color": 3066993,
-                  "fields": [
-                    {
-                      "name": "Repository",
-                      "value": "${{ github.repository }}"
-                    },
-                    {
-                      "name": "Branch",
-                      "value": "${{ github.ref_name }}"
-                    },
-                    {
-                      "name": "Node Version",
-                      "value": "${{ matrix.node-version }}"
-                    }
-                  ]
-                }
-              ]
-            }
+          embed-title: "🟢 Build Success"
+          embed-description: "All tests passed and build completed"
+          embed-color: 3066993
+          embed-author-name: "${{ github.actor }}"
+          embed-footer-text: "Repo: ${{ github.repository }} | Branch: ${{ github.ref_name }} | Node: ${{ matrix.node-version }}"
 
       - name: Discord Alert (Failure)
         if: failure()
         uses: tsickert/discord-webhook@v7.0.0
         with:
           webhook-url: ${{ secrets.WEBHOOK_DISCORD }}
-          payload: |
-            {
-              "embeds": [
-                {
-                  "title": "🔴 Build Failed",
-                  "description": "Tests or build failed",
-                  "color": 15158332,
-                  "fields": [
-                    {
-                      "name": "Repository",
-                      "value": "${{ github.repository }}"
-                    },
-                    {
-                      "name": "Branch",
-                      "value": "${{ github.ref_name }}"
-                    },
-                    {
-                      "name": "Node Version",
-                      "value": "${{ matrix.node-version }}"
-                    },
-                    {
-                      "name": "Logs",
-                      "value": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-                    }
-                  ]
-                }
-              ]
-            }
+          embed-title: "🔴 Build Failed"
+          embed-description: "Tests or build failed"
+          embed-color: 15158332
+          embed-author-name: "${{ github.actor }}"
+          embed-footer-text: "Repo: ${{ github.repository }} | Branch: ${{ github.ref_name }} | Node: ${{ matrix.node-version }}"
