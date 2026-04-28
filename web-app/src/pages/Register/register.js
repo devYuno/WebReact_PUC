@@ -90,7 +90,7 @@ class Register extends React.Component {
     }
 
     if (newUser){
-      console.log(newUser);
+      // console.log(newUser);
       localStorage.setItem('user', JSON.stringify(newUser))
       this.props.navigate("/");
     }
