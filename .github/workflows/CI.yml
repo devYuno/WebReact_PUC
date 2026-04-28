@@ -38,7 +38,7 @@ jobs:
         uses: tsickert/discord-webhook@v7.0.0
         with:
           webhook-url: ${{ secrets.WEBHOOK_DISCORD }}
-          raw-data: |
+          payload: |
             {
               "embeds": [
                 {
@@ -68,7 +68,7 @@ jobs:
         uses: tsickert/discord-webhook@v7.0.0
         with:
           webhook-url: ${{ secrets.WEBHOOK_DISCORD }}
-          raw-data: |
+          payload: |
             {
               "embeds": [
                 {
